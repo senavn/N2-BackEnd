@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "76570439-2c3c-444a-9b88-a89cb0be27f3",
+		"name": "Collection Item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllItem",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9050/api/item/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9050",
+					"path": [
+						"api",
+						"item",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetItem(GET)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9050/api/item/5e8d13be0eac750294f32616",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9050",
+					"path": [
+						"api",
+						"item",
+						"5e8d13be0eac750294f32616"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteItem(DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9050/api/item/5e8801a249460d49b4c3c90e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9050",
+					"path": [
+						"api",
+						"item",
+						"5e8801a249460d49b4c3c90e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registeritem(POST)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"codItem\": \"CELULAR\",\r\n        \"dtEntrada\": \"07/04/2020\",\r\n        \"tipoItem\": \"ELETRÔNICO\",\r\n        \"marcaItem\": \"SAMSUNG\",\r\n        \"caracteristica\": \"QUEBRA FACIL\",\r\n        \"tamanhoItem\": \"1.0\",\r\n        \"corItem\": \"PRETO\",\r\n        \"valorEtiquetaCompraItem\": \"2000.00\",\r\n        \"valorPagoItem\": \"1500.00\",\r\n        \"valorPagoMargemItem\": \"100\",\r\n        \"precoSugeridoItem\": \"1900.00\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9050/api/item/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9050",
+					"path": [
+						"api",
+						"item",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
