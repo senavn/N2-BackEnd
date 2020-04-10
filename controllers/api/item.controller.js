@@ -15,8 +15,8 @@ module.exports = router;
 
 function getAllitem(req,res){
     itemService.getAll()
-        .then(function (users) {
-            res.send(users);
+        .then(function (items) {
+            res.send(items);
         })
         .catch(function (err){
             res.status(400).send(err);
@@ -35,9 +35,9 @@ function registeritem(req, res) {
 
 function getCurrentitem(req, res) {
     itemService.getById(req.params._id)
-        .then(function (user) {
-            if (user) {
-                res.send(user);
+        .then(function (item) {
+            if (item) {
+                res.send(item);
             } else {
                 res.sendStatus(404);
             }

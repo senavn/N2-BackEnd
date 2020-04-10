@@ -13,6 +13,7 @@ service.getAll = getAll;
 service.getById = getById;
 service.create = create;
 service.delete = _delete;
+service.update = update;
 
 module.exports = service;
 
@@ -49,8 +50,8 @@ function getById(_id) {
 
 function create(createQuestion) {
     var deferred = Q.defer();
-    createUser();
-    function createUser() {
+    createitem();
+    function createitem() {
         var question = _.omit(createQuestion);
 
         db.item.insert(
@@ -75,6 +76,59 @@ function _delete(_id) {
 
             deferred.resolve();
         });
+
+    return deferred.promise;
+}
+
+function update(_id, itemParam) {
+    var deferred = Q.defer();
+
+    db.item.findById(_id, function (err, item) {
+        if (err) deferred.reject(err.name + ': ' + err.message);
+
+        if (item.codItem !== itemParam.codItem) {
+            db.item.findOne(
+                { codItem: itemParam.codItem },
+                function (err, item) {
+                    if (err) deferred.reject(err.name + ': ' + err.message);
+
+                    if (item) {
+                        // itemname already exists
+                        deferred.reject('Já existem um item com esse código: "' + req.body.codItem )
+                    } else {
+                        updateitem();
+                    }
+                });
+        } else {
+            updateitem();
+        }
+    });
+
+    function updateitem() {
+        // fields to update
+        var set = {
+            codItem: itemParam.codItem,
+            dtEntrada: itemParam.dtEntrada,
+            tipoItem: itemParam.tipoItem,
+            marcaItem: itemParam.marcaItem,
+            caracteristica: itemParam.caracteristica,
+            tamanhoItem: itemParam.tamanhoItem,
+            corItem: itemParam.corItem,
+            valorEtiquetaCompraItem: itemParam.valorEtiquetaCompraItem,
+            valorPagoItem: itemParam.valorPagoItem,
+            valorPagoMargemItem: itemParam.valorPagoMargemItem,
+            precoSugeridoItem: itemParam.precoSugeridoItem
+        };
+
+        db.item.update(
+            { _id: mongo.helper.toObjectID(_id) },
+            { $set: set },
+            function (err, doc) {
+                if (err) deferred.reject(err.name + ': ' + err.message);
+
+                deferred.resolve();
+            });
+    }
 
     return deferred.promise;
 }

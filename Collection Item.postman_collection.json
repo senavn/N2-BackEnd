@@ -130,6 +130,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "UpdataItem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"_id\": \"5e8d13be0eac750294f32616\",\n        \"codItem\":\t\t\t\t\t\"CELULAR5\",\n        \"dtEntrada\":\t\t\t\t\"07/04/2020\",\n        \"tipoItem\": \t\t\t\t\"ELETRÔNICO5\",\n        \"marcaItem\":\t\t\t\t\"SAMSUNG5\",\n        \"caracteristica\":\t\t\t\"QUEBRA FACIL5\",\n        \"tamanhoItem\":\t\t\t\t\"1.05\",\n        \"corItem\":\t\t\t\t\t\"PRETO5\",\n        \"valorEtiquetaCompraItem\":\t\"25000.00\",\n        \"valorPagoItem\":\t\t\t\"1500.005\",\n        \"valorPagoMargemItem\":\t\t\"1005\",\n        \"precoSugeridoItem\":\t\t\"1900.005\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9050/api/item/5e8d13be0eac750294f32616",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9050",
+					"path": [
+						"api",
+						"item",
+						"5e8d13be0eac750294f32616"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
