@@ -107,12 +107,11 @@ function update(_id, PlantacaoParam) {
     function updatePlantacao() {
         // fields to update
         var set = {
-            codPlantacao: PlantacaoParam.codPlantacao,
             dtPlantacao: PlantacaoParam.dtPlantacao,
             tipoPlantacao: PlantacaoParam.tipoPlantacao,
-            marcaPlantacao: PlantacaoParam.marcaPlantacao,
+            quantidadePlantacao: PlantacaoParam.marcaPlantacao,
             caracteristica: PlantacaoParam.caracteristica,
-            tamanhoPlantacao: PlantacaoParam.tamanhoPlantacao
+            nmHectares: PlantacaoParam.nmHectaresPlantacao
         };
 
         db.Plantacao.update(
