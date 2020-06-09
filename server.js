@@ -20,6 +20,7 @@ var ambiente = process.env.NODE_ENV || 'development';
 
 // separação da api
 // uso do JWT para garantir a segurança da API e o uso de json no body para transferir dados de uma camada para a outra 
+api.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/login/authenticate', '/api/login/register'] }));
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
